@@ -1,0 +1,7 @@
+spawn-at-startup "env" "QT_QPA_PLATFORMTHEME=gtk3" "qs" "-c" "noctalia-shell" "--no-duplicate"
+spawn-sh-at-startup "~/.config/noctalia/scripts/set-color-scheme.sh"
+spawn-at-startup "zen-browser"
+spawn-at-startup "code"
+spawn-at-startup "Telegram"
+spawn-at-startup "snx-rs-gui"
+spawn-sh-at-startup "wl-paste --watch cliphist store"

@@ -1,0 +1,24 @@
+binds {
+    Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+    Mod+Down  { focus-window-or-workspace-down; }
+    Mod+Up    { focus-window-or-workspace-up; }
+    Mod+Ctrl+Down  { move-window-down-or-to-workspace-down; }
+    Mod+Ctrl+Up    { move-window-up-or-to-workspace-up; }
+    Mod+J     { focus-window-or-workspace-down; }
+    Mod+K     { focus-window-or-workspace-up; }
+    Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
+    Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
+    Mod+Alt+F   { maximize-window-to-edges; }
+    Mod+Alt+V       { toggle-window-floating; }
+    Mod+V       { spawn-sh "qs -c noctalia-shell ipc call plugin:clipper togglePanel"; }
+    Mod+Alt+Period    { spawn-sh "emoji=$(bemoji -en) && [[ -n $emoji ]] && wl-copy $emoji && wtype -M ctrl v -m ctrl"; }
+    Alt+F4  { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+D   { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Mod+Alt+W   { spawn-sh "qs -c noctalia-shell ipc call wallpaper random all"; }
+
+    Mod+N { spawn-sh "wlr-which-key -k n"; }
+
+    Mod+TouchpadScrollDown cooldown-ms=100 { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
+    Mod+TouchpadScrollUp cooldown-ms=100 { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05- -l 1.0"; }
+}
+

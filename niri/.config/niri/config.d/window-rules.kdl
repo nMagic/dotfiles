@@ -1,0 +1,62 @@
+workspace "󰈹"
+workspace ""
+workspace ""
+workspace "󰦑"
+workspace "󰊗"
+
+
+/* ----- Browser -----*/
+window-rule {
+    match app-id="zen"
+
+    open-on-workspace "󰈹"
+    open-maximized true
+}
+
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+
+/* ----- Code -----*/
+window-rule {
+    match app-id="code-oss"
+
+    open-on-workspace ""
+    open-maximized-to-edges true
+}
+
+
+/* ----- Rostelecom -----*/
+window-rule {
+    match app-id="org.remmina.Remmina"
+    match app-id="TrueConf"
+    match app-id="snx-rs-gui"
+
+    open-on-workspace "󰦑"
+}
+window-rule {
+    match app-id="org.remmina.Remmina" title="RTK"
+
+    open-fullscreen true
+}
+
+/*----- Chat -----*/
+window-rule {
+    match app-id="org.telegram.desktop"
+
+    open-on-workspace ""
+    open-maximized true
+}
+
+
+/*----- Games -----*/
+window-rule {
+    match app-id="(steam_app_default|steam|net.lutris.Lutris)"
+
+    open-on-workspace "󰊗"
+}

@@ -1,0 +1,16 @@
+{
+    "editor.defaultColorDecorators": "always",
+    "editor.fontFamily": "DroidSansM Nerd Font Mono",
+    "editor.fontLigatures": true,
+    "everforest.darkContrast": "hard",
+    "everforest.darkWorkbench": "flat",
+    "everforest.lightContrast": "medium",
+    "terminal.explorerKind": "both",
+    "terminal.external.linuxExec": "/usr/bin/alacritty",
+    "terminal.integrated.fontLigatures.enabled": true,
+    "window.autoDetectColorScheme": false,
+    "window.zoomLevel": 0.5,
+    "workbench.colorTheme": "Catppuccin Latte",
+    "workbench.iconTheme": "eyecons",
+    "workbench.secondarySideBar.defaultVisibility": "visible"
+}

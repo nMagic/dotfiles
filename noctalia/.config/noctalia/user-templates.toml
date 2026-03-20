@@ -1,0 +1,30 @@
+[config]
+
+[templates]
+
+# User-defined templates
+# Add your custom templates below
+# Example:
+# [templates.myapp]
+# input_path = "~/.config/noctalia/templates/myapp.css"
+# output_path = "~/.config/myapp/theme.css"
+# post_hook = "myapp --reload-theme"
+
+# Remove this section and add your own templates
+#[templates.placeholder]
+#input_path = "/etc/xdg/quickshell/noctalia-shell/Assets/Templates/noctalia.json"
+#output_path = "/home/dmitriy/.cache/noctalia/placeholder.json"
+
+# SDDM GREETER
+[templates.sddm]
+input_path = "/usr/share/sddm/themes/noctalia/theme.template.conf"
+output_path = "/usr/share/sddm/themes/noctalia/theme.conf"
+
+[templates.alacritty]
+input_path = "~/.config/noctalia/templates/alacritty.toml"
+output_path = "~/.config/alacritty/themes/noctalia.custom.toml"
+
+[templates.wlr-which-key]
+input_path = "~/.config/noctalia/templates/wlr-which-key.yaml"
+output_path = "~/.config/wlr-which-key/theme.yaml"
+post_hook = "~/.config/wlr-which-key/set-theme.sh"

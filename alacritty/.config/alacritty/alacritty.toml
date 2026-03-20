@@ -1,0 +1,11 @@
+[general]
+import = [
+    "~/.config/alacritty/themes-from-git/themes/catppuccin_latte.toml",
+]
+
+[font]
+size = 14
+
+[window.padding]
+x = 10
+y = 10

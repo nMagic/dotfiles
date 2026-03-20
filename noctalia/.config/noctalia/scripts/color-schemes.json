@@ -1,0 +1,173 @@
+{
+    "Catppuccin": {
+        "alacritty": {
+            "dark": "themes-from-git/themes/catppuccin_mocha.toml",
+            "light": "themes-from-git/themes/catppuccin_latte.toml"
+        },
+        "dipc": {
+            "dark": "mocha",
+            "light": "latte",
+            "pallete": "catppuccin"
+        },
+        "vscode": {
+            "dark": "Catppuccin Mocha",
+            "light": "Catppuccin Latte"
+        },
+        "zellij": {
+            "dark": "catppuccin-macchiato",
+            "light": "catppuccin-latte"
+        }
+    },
+    "Everforest": {
+        "alacritty": {
+            "dark": "themes-from-git/themes/everforest_dark.toml",
+            "light": "themes-from-git/themes/everforest_light.toml"
+        },
+        "dipc": {
+            "dark": "Dark",
+            "light": "Light",
+            "pallete": "everforest"
+        },
+        "vscode": {
+            "dark": "Everforest Dark",
+            "light": "Everforest Light"
+        },
+        "zellij": {
+            "dark": "everforest-dark",
+            "light": "everforest-light"
+        }
+    },
+    "Nord": {
+        "alacritty": {
+            "dark": "themes-from-git/themes/nord.toml",
+            "light": "themes-from-git/themes/nord_light.toml"
+        },
+        "dipc": {
+            "dark": "Frost,Polar Night",
+            "light": "Frost,Snow Storm",
+            "pallete": "nord"
+        },
+        "vscode": {
+            "dark": "Nord",
+            "light": "Nord Light"
+        },
+        "zellij": {
+            "dark": "nord",
+            "light": "nord"
+        }
+    },
+    "Gruvbox": {
+        "alacritty": {
+            "dark": "themes-from-git/themes/gruvbox_dark.toml",
+            "light": "themes-from-git/themes/gruvbox_light.toml"
+        },
+        "dipc": {
+            "dark": "Dark mode",
+            "light": "Light mode",
+            "pallete": "gruvbox"
+        },
+        "vscode": {
+            "dark": "Gruvbox Dark Medium",
+            "light": "Gruvbox Light Medium"
+        },
+        "zellij": {
+            "dark": "gruvbox-dark",
+            "light": "gruvbox-light"
+        }
+    },
+    "Tokyo Night": {
+        "alacritty": {
+            "dark": "themes-from-git/themes/tokyo_night_enhanced.toml",
+            "light": "themes/noctalia.custom.toml"
+        },
+        "dipc": {
+            "dark": "Night",
+            "light": "Day",
+            "pallete": "tokyo-night"
+        },
+        "vscode": {
+            "dark": "Tokyo Night",
+            "light": "Tokyo Night Light"
+        },
+        "zellij": {
+            "dark": "tokyo-night",
+            "light": "tokyo-night"
+        }
+    },
+    "Dracula": {
+        "alacritty": {
+            "dark": "themes-from-git/themes/dracula.toml",
+            "light": "themes/noctalia.custom.toml"
+        },
+        "dipc": {
+            "dark": "Dracula",
+            "light": "Dracula",
+            "pallete": "dracula"
+        },
+        "vscode": {
+            "dark": "Dracula Theme",
+            "light": "Dracula Theme"
+        },
+        "zellij": {
+            "dark": "dracula",
+            "light": "dracula"
+        }
+    },
+    "Ayu": {
+        "alacritty": {
+            "dark": "themes-from-git/themes/ayu_mirage.toml",
+            "light": "themes-from-git/themes/ayu_light.toml"
+        },
+        "dipc": {
+            "dark": "dark",
+            "light": "light",
+            "pallete": "~/.config/dipc/ayu.json"
+        },
+        "vscode": {
+            "dark": "Ayu Mirage",
+            "light": "Ayu Light"
+        },
+        "zellij": {
+            "dark": "ayu_mirage",
+            "light": "ayu_light"
+        }
+    },
+    "Solarized": {
+        "alacritty": {
+            "dark": "themes-from-git/themes/solarized_dark.toml",
+            "light": "themes-from-git/themes/solarized_light.toml"
+        },
+        "dipc": {
+            "dark": "Solarized",
+            "light": "Solarized",
+            "pallete": "solarized"
+        },
+        "vscode": {
+            "dark": "Solarized Dark",
+            "light": "Solarized Light"
+        },
+        "zellij": {
+            "dark": "solarized-dark",
+            "light": "solarized-light"
+        }
+    },
+    "Kanagawa": {
+        "alacritty": {
+            "dark": "themes-from-git/themes/kanagawa_wave.toml",
+            "light": "themes/noctalia.custom.toml"
+        },
+        "dipc": {
+            "dark": "dark",
+            "light": "light",
+            "pallete": "~/.config/dipc/kanagawa.json"
+        },
+        "vscode": {
+            "dark": "Kanagawa Wave",
+            "light": "Kanagawa Lotus"
+        },
+        "zellij": {
+            "dark": "kanagawa",
+            "light": "kanagawa"
+        }
+    }
+}
