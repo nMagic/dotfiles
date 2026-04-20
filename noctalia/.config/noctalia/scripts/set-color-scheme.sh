@@ -1,5 +1,6 @@
 #!/bin/bash
 
+ACTIVE_WINDOW=$(niri msg --json focused-window | jq -r '.id')
 SCHEMES="$HOME/.config/noctalia/scripts/color-schemes.json"
 NOCTALIA_HOME="$HOME/.config/noctalia"
 NOCTALIA_CONFIG="$NOCTALIA_HOME/settings.json"
@@ -54,20 +55,27 @@ function set_color_scheme {
     ### WALLPAPER, GSETTINGS
     if [[ "$scheme" == "$PREV_SCHEME" ]]; then
         if [[ "$mode" == "dark" ]]; then
-            notify-send $NOCTALIA_WALLPAPER_DARK_PATH
-            /usr/bin/qs -c noctalia-shell ipc call wallpaper set "$NOCTALIA_WALLPAPER_DARK_PATH" all
+            # notify-send $NOCTALIA_WALLPAPER_DARK_PATH
+            # /usr/bin/qs -c noctalia-shell ipc call wallpaper set "$NOCTALIA_WALLPAPER_DARK_PATH" all
             gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
         else
-            notify-send $NOCTALIA_WALLPAPER_LIGHT_PATH
-            /usr/bin/qs -c noctalia-shell ipc call wallpaper set "$NOCTALIA_WALLPAPER_LIGHT_PATH" all
+            # notify-send $NOCTALIA_WALLPAPER_LIGHT_PATH
+            # /usr/bin/qs -c noctalia-shell ipc call wallpaper set "$NOCTALIA_WALLPAPER_LIGHT_PATH" all
             gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
         fi
-    else
-        /usr/bin/qs -c noctalia-shell ipc call wallpaper set "$wallpaper" all
+    # else
+        # /usr/bin/qs -c noctalia-shell ipc call wallpaper set "$wallpaper" all
     fi
 
     ### ZELLIJ
     sed --follow-symlinks -i "s|theme \".*\"|theme \"${zellij}\"|g" "$ZELLIJ_CONFIG"
+}
+
+function reload_apps {
+    killall zen-bin && sleep 1 && zen-browser &
+    
+    sleep 1
+    niri msg action focus-window --id $ACTIVE_WINDOW
 }
 
 while true ; do
@@ -75,11 +83,14 @@ while true ; do
     MODE="$(jq -r '.colorSchemes.darkMode' $NOCTALIA_CONFIG)"
     if [[ "$SCHEME" != $PREV_SCHEME ]]; then        
         set_color_scheme "$SCHEME" $MODE
+        # reload_apps
         PREV_SCHEME=$SCHEME
+        
     fi
 
     if [[ "$MODE" != $PREV_MODE ]]; then        
         set_color_scheme "$SCHEME" $MODE
+        # reload_apps
         PREV_MODE=$MODE
     fi
 

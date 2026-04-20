@@ -9,14 +9,14 @@
         "density": "default",
         "enableClipPreview": true,
         "enableClipboardChips": true,
-        "enableClipboardHistory": false,
+        "enableClipboardHistory": true,
         "enableClipboardSmartIcons": true,
         "enableSessionSearch": true,
         "enableSettingsSearch": true,
         "enableWindowsSearch": true,
-        "iconMode": "tabler",
+        "iconMode": "native",
         "ignoreMouseInput": false,
-        "overviewLayer": false,
+        "overviewLayer": true,
         "pinnedApps": [
             "code-oss",
             "trueconf",
@@ -35,6 +35,7 @@
         ],
         "preferredPlayer": "",
         "spectrumFrameRate": 30,
+        "spectrumMirrored": true,
         "visualizerType": "linear",
         "volumeFeedback": false,
         "volumeFeedbackSoundFile": "",
@@ -44,24 +45,23 @@
     "bar": {
         "autoHideDelay": 500,
         "autoShowDelay": 150,
-        "backgroundOpacity": 0,
-        "barType": "simple",
+        "backgroundOpacity": 1,
+        "barType": "floating",
         "capsuleColorKey": "none",
         "capsuleOpacity": 1,
         "contentPadding": 2,
         "density": "default",
         "displayMode": "always_visible",
         "enableExclusionZoneInset": true,
-        "floating": false,
         "fontScale": 1,
-        "frameRadius": 12,
+        "frameRadius": 24,
         "frameThickness": 8,
         "hideOnOverview": false,
-        "marginHorizontal": 8,
+        "marginHorizontal": 4,
         "marginVertical": 4,
         "middleClickAction": "settings",
         "middleClickCommand": "",
-        "middleClickFollowMouse": false,
+        "middleClickFollowMouse": true,
         "monitors": [
         ],
         "mouseWheelAction": "workspace",
@@ -81,7 +81,7 @@
         "showCapsule": false,
         "showOnWorkspaceSwitch": true,
         "showOutline": false,
-        "useSeparateOpacity": false,
+        "useSeparateOpacity": true,
         "widgetSpacing": 6,
         "widgets": {
             "center": [
@@ -97,11 +97,12 @@
                 {
                     "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "primary",
+                    "colorizeSystemText": "none",
                     "customIconPath": "",
                     "enableColorization": true,
-                    "icon": "noctalia",
+                    "icon": "north-star",
                     "id": "ControlCenter",
-                    "useDistroLogo": true
+                    "useDistroLogo": false
                 },
                 {
                     "compactMode": true,
@@ -174,7 +175,7 @@
                     "unfocusedIconsOpacity": 1
                 },
                 {
-                    "colorizeIcons": true,
+                    "colorizeIcons": false,
                     "hideMode": "hidden",
                     "iconScale": 0.8,
                     "id": "Taskbar",
@@ -187,12 +188,13 @@
                     "titleWidth": 120
                 },
                 {
-                    "colorizeIcons": true,
+                    "colorizeIcons": false,
                     "hideMode": "visible",
                     "id": "ActiveWindow",
                     "maxWidth": 145,
                     "scrollingMode": "hover",
                     "showIcon": true,
+                    "showText": true,
                     "textColor": "none",
                     "useFixedWidth": false
                 }
@@ -234,20 +236,20 @@
                     "textColor": "none"
                 },
                 {
-                    "deviceNativePath": "__default__",
+                    "deviceNativePath": "/org/bluez/hci0/dev_D1_03_D1_6A_13_92",
                     "displayMode": "graphic",
                     "hideIfIdle": false,
-                    "hideIfNotDetected": true,
+                    "hideIfNotDetected": false,
                     "id": "Battery",
                     "showNoctaliaPerformance": true,
                     "showPowerProfiles": true
                 },
                 {
                     "displayMode": "forceOpen",
-                    "iconColor": "none",
+                    "iconColor": "error",
                     "id": "KeyboardLayout",
                     "showIcon": false,
-                    "textColor": "none"
+                    "textColor": "primary"
                 },
                 {
                     "hideWhenZero": false,
@@ -273,6 +275,17 @@
                         "displayMode": "onhover"
                     },
                     "id": "plugin:network-manager-vpn"
+                },
+                {
+                    "defaultSettings": {
+                    },
+                    "id": "plugin:kde-connect"
+                },
+                {
+                    "defaultSettings": {
+                        "iconColor": "none"
+                    },
+                    "id": "plugin:color-scheme-creator"
                 }
             ]
         }
@@ -301,13 +314,14 @@
         ]
     },
     "colorSchemes": {
-        "darkMode": false,
-        "generationMethod": "fruit-salad",
+        "darkMode": true,
+        "generationMethod": "tonal-spot",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Catppuccin",
-        "schedulingMode": "location",
+        "predefinedScheme": "Nord",
+        "schedulingMode": "off",
+        "syncGsettings": true,
         "useWallpaperColors": false
     },
     "controlCenter": {
@@ -389,10 +403,10 @@
     "dock": {
         "animationSpeed": 1,
         "backgroundOpacity": 1,
-        "colorizeIcons": true,
+        "colorizeIcons": false,
         "deadOpacity": 0.6,
         "displayMode": "auto_hide",
-        "dockType": "attached",
+        "dockType": "floating",
         "enabled": true,
         "floatingRatio": 1,
         "groupApps": true,
@@ -402,8 +416,8 @@
         "inactiveIndicators": false,
         "indicatorColor": "primary",
         "indicatorOpacity": 0.6,
-        "indicatorThickness": 3,
-        "launcherIcon": "",
+        "indicatorThickness": 6,
+        "launcherIcon": "hexagon-plus",
         "launcherIconColor": "none",
         "launcherPosition": "start",
         "launcherUseDistroLogo": false,
@@ -414,15 +428,15 @@
         ],
         "pinnedStatic": false,
         "position": "bottom",
-        "showDockIndicator": true,
-        "showLauncherIcon": false,
+        "showDockIndicator": false,
+        "showLauncherIcon": true,
         "sitOnFrame": false,
         "size": 1
     },
     "general": {
         "allowPanelsOnScreenWithoutBar": true,
         "allowPasswordWithFprintd": false,
-        "animationDisabled": true,
+        "animationDisabled": false,
         "animationSpeed": 1,
         "autoStartAuth": false,
         "avatarImage": "/home/dmitriy/.face",
@@ -434,8 +448,8 @@
         "enableBlurBehind": true,
         "enableLockScreenCountdown": true,
         "enableLockScreenMediaControls": true,
-        "enableShadows": false,
-        "forceBlackScreenCorners": false,
+        "enableShadows": true,
+        "forceBlackScreenCorners": true,
         "iRadiusRatio": 1,
         "keybinds": {
             "keyDown": [
@@ -479,8 +493,9 @@
         "shadowOffsetY": 3,
         "showChangelogOnStartup": true,
         "showHibernateOnLockScreen": true,
-        "showScreenCorners": false,
+        "showScreenCorners": true,
         "showSessionButtonsOnLockScreen": true,
+        "smoothScrollEnabled": true,
         "telemetryEnabled": true
     },
     "hooks": {
@@ -493,24 +508,25 @@
         "screenUnlock": "",
         "session": "",
         "startup": "",
-        "wallpaperChange": "/home/dmitriy/.config/noctalia/scripts/change-wallpaper.sh $1"
+        "wallpaperChange": ""
     },
     "idle": {
-        "customCommands": "[]",
+        "customCommands": "[{\"name\":\"Sreensaver\",\"timeout\":120,\"command\":\"niri msg action do-screen-transition --delay-ms=300 && alacritty --class Screensaver -e asciiquarium\",\"resumeCommand\":\"niri msg --json windows | jq -r '.[] | select(.app_id == \\\"Screensaver\\\") | .id' | xargs -I {} niri msg action close-window --id {}\"}]",
         "enabled": true,
         "fadeDuration": 1,
         "lockCommand": "",
-        "lockTimeout": 600,
+        "lockTimeout": 0,
         "resumeLockCommand": "",
         "resumeScreenOffCommand": "",
         "resumeSuspendCommand": "",
         "screenOffCommand": "",
-        "screenOffTimeout": 300,
+        "screenOffTimeout": 0,
         "suspendCommand": "",
-        "suspendTimeout": 660
+        "suspendTimeout": 0
     },
     "location": {
         "analogClockInCalendar": false,
+        "autoLocate": false,
         "firstDayOfWeek": -1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
@@ -521,10 +537,10 @@
         "use12hourFormat": false,
         "useFahrenheit": false,
         "weatherEnabled": true,
-        "weatherShowEffects": true
+        "weatherShowEffects": true,
+        "weatherTaliaMascotAlways": false
     },
     "network": {
-        "airplaneModeEnabled": false,
         "bluetoothAutoConnect": true,
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": true,
@@ -532,8 +548,7 @@
         "bluetoothRssiPollingEnabled": false,
         "disableDiscoverability": true,
         "networkPanelView": "wifi",
-        "wifiDetailsViewMode": "grid",
-        "wifiEnabled": true
+        "wifiDetailsViewMode": "grid"
     },
     "nightLight": {
         "autoSchedule": true,
@@ -717,7 +732,19 @@
             },
             {
                 "enabled": true,
-                "id": "yazi"
+                "id": "steam"
+            },
+            {
+                "enabled": true,
+                "id": "discord"
+            },
+            {
+                "enabled": true,
+                "id": "kcolorscheme"
+            },
+            {
+                "enabled": true,
+                "id": "btop"
             },
             {
                 "enabled": true,
@@ -733,9 +760,9 @@
         "fontFixed": "DroidSansM Nerd Font Mono",
         "fontFixedScale": 1,
         "panelBackgroundOpacity": 0.93,
-        "panelsAttachedToBar": true,
+        "panelsAttachedToBar": false,
         "scrollbarAlwaysVisible": true,
-        "settingsPanelMode": "attached",
+        "settingsPanelMode": "centered",
         "settingsPanelSideBarCardStyle": false,
         "tooltipsEnabled": true,
         "translucentWidgets": false
@@ -750,7 +777,13 @@
         "fillColor": "#000000",
         "fillMode": "crop",
         "hideWallpaperFilenames": false,
+        "linkLightAndDarkWallpapers": false,
         "monitorDirectories": [
+            {
+                "directory": "/home/dmitriy/Pictures/Wallpapers",
+                "name": "HDMI-A-1",
+                "wallpaper": ""
+            }
         ],
         "overviewBlur": 0.4,
         "overviewEnabled": false,
@@ -759,22 +792,23 @@
         "randomIntervalSec": 300,
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,
-        "skipStartupTransition": true,
+        "skipStartupTransition": false,
         "solidColor": "#1a1a2e",
-        "sortOrder": "name",
-        "transitionDuration": 0,
+        "sortOrder": "name_desc",
+        "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": [
             "fade"
         ],
+        "useOriginalImages": true,
         "useSolidColor": false,
         "useWallhaven": false,
-        "viewMode": "recursive",
+        "viewMode": "browse",
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
         "wallhavenPurity": "100",
-        "wallhavenQuery": "blood eclipse",
+        "wallhavenQuery": "persona",
         "wallhavenRatios": "",
         "wallhavenResolutionHeight": "",
         "wallhavenResolutionMode": "atleast",

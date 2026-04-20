@@ -8,10 +8,19 @@ NOCTALIA_HOME="$HOME/.config/noctalia"
 NOCTALIA_CONFIG="$NOCTALIA_HOME/settings.json"
 NOCTALIA_WALLPAPER_DARK_PATH="$HOME/Pictures/Wallpapers/noctalia_dark.png"
 NOCTALIA_WALLPAPER_LIGHT_PATH="$HOME/Pictures/Wallpapers/noctalia_light.png"
+NOCTALIA_WALLPAPER_COLORS=$(jq -r '.colorSchemes.useWallpaperColors' "$NOCTALIA_CONFIG")
 
-if [[ $1 != $NOCTALIA_WALLPAPER_DARK_PATH && $1 != $NOCTALIA_WALLPAPER_LIGHT_PATH ]]; then
+if ! [[ "$1" =~ .*dipc.* ]]; then 
+    if ! [[ "$1" == $NOCTALIA_WALLPAPER_DARK_PATH || "$1" == $NOCTALIA_WALLPAPER_LIGHT_PATH ]]; then
+        echo "$1" > $HOME/.cache/noctalia/wallpaper.original
+        ln -sf "$(cat $HOME/.cache/noctalia/wallpaper.original)" "$NOCTALIA_WALLPAPER_DARK_PATH"
+        ln -sf "$(cat $HOME/.cache/noctalia/wallpaper.original)" "$NOCTALIA_WALLPAPER_LIGHT_PATH"
+    fi
+fi
 
-    echo $1 > $HOME/.cache/noctalia/wallpaper.original
+if [[ "$1" != $NOCTALIA_WALLPAPER_DARK_PATH && "$1" != $NOCTALIA_WALLPAPER_LIGHT_PATH && "$NOCTALIA_WALLPAPER_COLORS" == "false" && "$1" =~ .*dipc.* ]]; then
+
+    echo "$1" > $HOME/.cache/noctalia/wallpaper.original
     rm $NOCTALIA_WALLPAPER_DARK_PATH $NOCTALIA_WALLPAPER_LIGHT_PATH
 
     SCHEME=$(jq -r '.colorSchemes.predefinedScheme' "$NOCTALIA_CONFIG")
@@ -20,8 +29,6 @@ if [[ $1 != $NOCTALIA_WALLPAPER_DARK_PATH && $1 != $NOCTALIA_WALLPAPER_LIGHT_PAT
     PALLETE="${PALLETE/#\~/$HOME}"
     STYLE_DARK=$(jq -r ".\"$SCHEME\".dipc.dark" "$SCHEMES")
     STYLE_LIGHT=$(jq -r ".\"$SCHEME\".dipc.light" "$SCHEMES")
-    wl-copy "$PALLETE"
-    # wl-copy "/home/dmitriy/.cargo/bin/dipc -s \"${STYLE_DARK}\" -o $NOCTALIA_WALLPAPER_DARK_PATH \"$PALLETE\" \"$1\""
     /home/dmitriy/.cargo/bin/dipc -s "$STYLE_DARK" -o $NOCTALIA_WALLPAPER_DARK_PATH "$PALLETE" "$1"
     /home/dmitriy/.cargo/bin/dipc -s "$STYLE_LIGHT" -o $NOCTALIA_WALLPAPER_LIGHT_PATH "$PALLETE" "$1"
 
