@@ -1,7 +1,11 @@
 spawn-at-startup "env" "QT_QPA_PLATFORMTHEME=gtk3" "qs" "-c" "noctalia-shell" "--no-duplicate"
 spawn-sh-at-startup "~/.config/noctalia/scripts/set-color-scheme.sh"
-spawn-at-startup "zen-browser"
-spawn-at-startup "code"
-spawn-at-startup "Telegram"
-spawn-at-startup "snx-rs-gui"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
+spawn-sh-at-startup "wireproxy -c .config/wireproxy/wireproxy.conf -d"
+
+
+spawn-sh-at-startup "sleep 5 && zen-browser"
+spawn-sh-at-startup "sleep 5 && code"
+spawn-sh-at-startup "sleep 5 && Telegram"
+spawn-sh-at-startup "sleep 5 && snx-rs-gui"
+spawn-sh-at-startup "sleep 5 && remmina -i"

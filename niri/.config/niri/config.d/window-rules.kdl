@@ -27,7 +27,7 @@ window-rule {
     match app-id="code-oss"
 
     open-on-workspace ""
-    open-maximized-to-edges true
+    open-maximized true
 }
 
 
@@ -36,9 +36,23 @@ window-rule {
     match app-id="org.remmina.Remmina"
     match app-id="TrueConf"
     match app-id="snx-rs-gui"
+    match app-id="vivaldi-stable"
+    match app-id="YuChat"
 
     open-on-workspace "󰦑"
 }
+
+window-rule {
+    match title="VPN Authentication Factor"
+    match app-id="snx-rs-gui"
+
+    open-floating true
+    open-focused true
+
+    default-column-width { fixed 680; }
+    default-window-height { fixed 150; }
+}
+
 window-rule {
     match app-id="org.remmina.Remmina" title="RTK"
 
@@ -47,7 +61,7 @@ window-rule {
 
 /*----- Chat -----*/
 window-rule {
-    match app-id="org.telegram.desktop"
+    match app-id="(org.telegram.desktop|discord)"
 
     open-on-workspace ""
     open-maximized true
@@ -59,4 +73,12 @@ window-rule {
     match app-id="(steam_app_default|steam|net.lutris.Lutris)"
 
     open-on-workspace "󰊗"
+}
+
+
+/*----- Screensaver -----*/
+window-rule {
+    match app-id="Screensaver"
+
+    open-fullscreen true
 }

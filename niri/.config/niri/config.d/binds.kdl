@@ -15,10 +15,21 @@ binds {
     Alt+F4  { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
     Mod+D   { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+Alt+W   { spawn-sh "qs -c noctalia-shell ipc call wallpaper random all"; }
+    Mod+Tab { spawn-sh "qs -c noctalia-shell ipc call launcher windows"; }
 
     Mod+N { spawn-sh "wlr-which-key -k n"; }
 
     Mod+TouchpadScrollDown cooldown-ms=100 { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
     Mod+TouchpadScrollUp cooldown-ms=100 { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05- -l 1.0"; }
+
+    Mod+Alt+1 { focus-column 1; }
+    Mod+Alt+2 { focus-column 2; }
+    Mod+Alt+3 { focus-column 3; }
+    Mod+Alt+4 { focus-column 4; }
+    Mod+Alt+5 { focus-column 5; }
+    Mod+Alt+6 { focus-column 6; }
+    Mod+Alt+7 { focus-column 7; }
+    Mod+Alt+8 { focus-column 8; }
+    Mod+Alt+9 { focus-column 9; }
 }
 
