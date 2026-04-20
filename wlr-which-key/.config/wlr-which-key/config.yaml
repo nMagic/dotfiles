@@ -1,6 +1,6 @@
-background: "#eff1f5"
-color: "#4c4f69"
-border: "#8839ef"
+background: "#2e3440"
+color: "#eceff4"
+border: "#8fbcbb"
 # Theming
 font: JetBrainsMono Nerd Font 12
 separator: " ➜ "
@@ -33,8 +33,14 @@ menu:
     desc: Noctalia
     submenu:
       - key: "w"
-        desc: Random wallpaper
-        cmd: qs -c noctalia-shell ipc call wallpaper random all
+        desc: Wallpaper
+        submenu:
+          - key: "w"
+            desc: Random wallpaper 
+            cmd: qs -c noctalia-shell ipc call wallpaper random all
+          - key: "s"
+            desc: Wallpaper settings 
+            cmd: qs -c noctalia-shell ipc call wallpaper toggle
       - key: "m"
         desc: Toggle dark/light mode
         cmd: qs -c noctalia-shell ipc call darkMode toggle
@@ -44,5 +50,14 @@ menu:
       - key: "s"
         desc: Toggle settings window
         cmd: qs -c noctalia-shell ipc call settings toggle
-
+  - key: "w"
+    desc: Work
+    submenu:
+      - key: "s"
+        desc: Start work applications
+        cmd: start-rtk.sh
+      - key: "k"
+        desc: Kill work applications
+        cmd: kill-rtk.sh 
+ 
         
