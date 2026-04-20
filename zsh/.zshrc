@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -71,9 +71,14 @@ ZSH_THEME="bira"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z fzf history zsh-autosuggestions)
+plugins=(git z fzf history zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting)
 
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+fpath=(~/.oh-my-zsh/completions $fpath)
+autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
+
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # User configuration
 
