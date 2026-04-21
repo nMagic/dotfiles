@@ -2,7 +2,7 @@ background: "#2e3440"
 color: "#eceff4"
 border: "#8fbcbb"
 # Theming
-font: JetBrainsMono Nerd Font 12
+font: DroidSansM Nerd Font Mono 12
 separator: " ➜ "
 border_width: 4
 corner_r: 10
@@ -55,9 +55,21 @@ menu:
     submenu:
       - key: "s"
         desc: Start work applications
-        cmd: start-rtk.sh
+        cmd: ~/bin/start-rtk.sh
       - key: "k"
         desc: Kill work applications
-        cmd: kill-rtk.sh 
+        cmd: ~/bin/kill-rtk.sh 
+      - key: "f"
+        desc: Focus an app
+        submenu:
+        - key: "c"
+          desc: YuChat
+          cmd: niri msg action focus-window --id $(niri msg --json windows | jq -r '.[] | select(.workspace_id==4) | select(.app_id=="YuChat") | .id' | sort | head -1)
+        - key: "t"
+          desc: TrueConf
+          cmd: niri msg action focus-window --id $(niri msg --json windows | jq -r '.[] | select(.workspace_id==4) | select(.app_id=="TrueConf") | .id' | sort | head -1)
+        - key: "v"
+          desc: Vivaldi
+          cmd: niri msg action focus-window --id $(niri msg --json windows | jq -r '.[] | select(.workspace_id==4) | select(.app_id=="vivaldi-stable") | .id')
  
         

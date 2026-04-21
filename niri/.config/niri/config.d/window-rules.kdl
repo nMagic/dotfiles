@@ -59,6 +59,12 @@ window-rule {
     open-fullscreen true
 }
 
+window-rule {
+    match app-id="vivaldi-stable"
+
+    open-maximized true
+}
+
 /*----- Chat -----*/
 window-rule {
     match app-id="(org.telegram.desktop|discord)"

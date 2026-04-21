@@ -31,5 +31,7 @@ binds {
     Mod+Alt+7 { focus-column 7; }
     Mod+Alt+8 { focus-column 8; }
     Mod+Alt+9 { focus-column 9; }
+
+    Mod+W { spawn-sh "wlr-which-key -k w"; }
 }
 
