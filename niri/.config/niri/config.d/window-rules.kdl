@@ -88,3 +88,14 @@ window-rule {
 
     open-fullscreen true
 }
+
+
+/*----- Junction -----*/
+window-rule {
+    match app-id="re.sonny.Junction"
+
+    open-floating true
+    open-focused true
+    default-column-width { fixed 700; }
+    default-window-height { fixed 200; }
+}
