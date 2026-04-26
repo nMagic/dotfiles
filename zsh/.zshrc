@@ -71,7 +71,7 @@ ZSH_THEME="bira"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z fzf history zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting)
+plugins=(git z fzf history zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting vi-mode)
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 fpath=(~/.oh-my-zsh/completions $fpath)
@@ -79,6 +79,8 @@ autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
 
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+bindkey -v
 
 # User configuration
 
@@ -110,3 +112,5 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ll="ls -lah"
 alias eza="eza --icons=always -lah"
+alias v="nvim"
+alias wp="env http_proxy=socks5://127.0.0.1:1080 https_proxy=socks5://127.0.0.1:1080"
