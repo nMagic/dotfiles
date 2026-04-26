@@ -5,6 +5,7 @@ import = [
 
 [font]
 size = 14
+normal = { family = "DroidSansM Nerd Font Mono", style = "Regular" }
 
 [window.padding]
 x = 10
