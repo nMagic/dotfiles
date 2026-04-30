@@ -1,0 +1,23 @@
+#!/bin/bash
+
+SCRIPTPATH="$(
+  cd "$(dirname "$0")" || exit
+  pwd -P
+)"
+
+if [[ ! -d "$SCRIPTPATH/../.config/Code - OSS/User" ]]; then
+  mkdir -p "$SCRIPTPATH/../.config/Code - OSS/User"
+fi
+
+if [[ ! -f "$SCRIPTPATH/../.config/Code - OSS/User/settings.json" ]]; then
+  if [[ -f "$HOME/.config/Code - OSS/User/settings.json" ]]; then
+    cp "$HOME/.config/Code - OSS/User/settings.json" "$SCRIPTPATH/../.config/Code - OSS/User/"
+    mv "$HOME/.config/Code - OSS/User/settings.json" "$HOME/.config/Code - OSS/User/settings.json.bak"
+  else
+    echo "{ }" >"$SCRIPTPATH/../.config/Code - OSS/User/settings.json"
+  fi
+fi
+
+jq -s -r '.[0] * .[1]' "$SCRIPTPATH/../.config/Code - OSS/User/settings.json" "$SCRIPTPATH/src/base.json" >"$SCRIPTPATH/tmp.json"
+cat "$SCRIPTPATH/tmp.json" >"$SCRIPTPATH/../.config/Code - OSS/User/settings.json"
+rm "$SCRIPTPATH/tmp.json"
