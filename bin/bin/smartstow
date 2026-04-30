@@ -117,7 +117,7 @@ for package in "$@"; do
   # Настройка игнорирования
   if [[ -d "./$package/.smartstow" ]]; then
     if [[ ! -f "./$package/.stow-local-ignore" ]] || ! grep -q ".smartstow" "./$package/.stow-local-ignore"; then
-      echo ".smartstow" >>"./$package/.stow-local-ignore"
+      sed -i "1i\.smartstow" "./$package/.stow-local-ignore"
     fi
   fi
 
