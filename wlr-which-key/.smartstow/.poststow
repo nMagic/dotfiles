@@ -1,0 +1,3 @@
+#!/bin/bash
+
+"$HOME"/.config/wlr-which-key/set-theme.sh

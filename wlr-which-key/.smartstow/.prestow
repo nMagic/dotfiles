@@ -1,0 +1,12 @@
+#!/bin/bash
+
+SCRIPTPATH="$(
+  cd "$(dirname "$0")" || exit
+  pwd -P
+)"
+
+if [[ ! -d "$SCRIPTPATH"/../.config/wlr-which-key ]]; then
+  mkdir -p "$SCRIPTPATH"/../.config/wlr-which-key
+fi
+
+cp "$SCRIPTPATH"/src/* "$SCRIPTPATH"/../.config/wlr-which-key/
