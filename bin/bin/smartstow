@@ -1,0 +1,136 @@
+#!/bin/bash
+
+set -Eeuo pipefail
+trap 'echo "Ошибка в строке $LINENO" >&2' ERR
+
+usage() {
+  cat <<EOF
+Использование: ${0##*/} [-S|-D|-R] [-q] пакет1 [пакет2 ...]
+
+Параметры:
+  -S    Установить (Stow)
+  -D    Удалить (Delete)
+  -R    Переустановить (Restow)
+  -q    Тихий режим (Silent)
+  -h    Справка (Help)
+EOF
+}
+
+mode=''
+silent=false
+OPTIND=1
+
+while getopts ":SDRqh" opt; do
+  case "$opt" in
+  S | D | R)
+    # Проверка, что режим не был выбран ранее
+    if [[ -n "$mode" && "$mode" != "$opt" ]]; then
+      echo "Ошибка: нельзя выбирать более одного режима (-S, -D, -R)" >&2
+      exit 1
+    fi
+    mode="$opt"
+    ;;
+  q)
+    silent=true
+    ;;
+  h)
+    usage
+    exit 0
+    ;;
+  \?)
+    echo "Неизвестная опция -$OPTARG" >&2
+    usage
+    exit 2
+    ;;
+  esac
+done
+shift "$((OPTIND - 1))"
+
+# Режим по умолчанию, если не указан
+mode="${mode:-S}"
+
+if [[ $# -eq 0 ]]; then
+  echo "Ошибка: не указано имя пакета" >&2
+  usage
+  exit 1
+fi
+
+log() {
+  if [[ "$silent" == false ]]; then
+    echo "--> $*"
+  fi
+}
+
+_stow() {
+  local pkg="$1"
+  if [[ "$prestow" == "true" ]]; then
+    log "Запуск .prestow для $pkg..."
+    /bin/bash "./$pkg/.smartstow/.prestow" "$pkg"
+  fi
+
+  log "Выполнение stow -S $pkg..."
+  if [[ "$silent" == true ]]; then
+    stow -S "$pkg" >/dev/null
+  else
+    stow -S "$pkg"
+  fi
+
+  if [[ "$poststow" == "true" ]]; then
+    log "Запуск .poststow для $pkg..."
+    /bin/bash "./$pkg/.smartstow/.poststow" "$pkg"
+  fi
+}
+
+_delete() {
+  local pkg="$1"
+  if [[ "$predelete" == "true" ]]; then
+    log "Запуск .predelete для $pkg..."
+    /bin/bash "./$pkg/.smartstow/.predelete" "$pkg"
+  fi
+
+  log "Выполнение stow -D $pkg..."
+  if [[ "$silent" == true ]]; then
+    stow -D "$pkg" >/dev/null
+  else
+    stow -D "$pkg"
+  fi
+
+  if [[ "$postdelete" == "true" ]]; then
+    log "Запуск .postdelete для $pkg..."
+    /bin/bash "./$pkg/.smartstow/.postdelete" "$pkg"
+  fi
+}
+
+_restow() {
+  local pkg="$1"
+  log "Переустановка пакета: $pkg"
+  _delete "$pkg"
+  _stow "$pkg"
+}
+
+for package in "$@"; do
+  if [[ ! -d "./$package" ]]; then
+    echo "stow: ERROR: Директория '$package' не найдена" >&2
+    continue
+  fi
+
+  # Настройка игнорирования
+  if [[ -d "./$package/.smartstow" ]]; then
+    if [[ ! -f "./$package/.stow-local-ignore" ]] || ! grep -q ".smartstow" "./$package/.stow-local-ignore"; then
+      echo ".smartstow" >>"./$package/.stow-local-ignore"
+    fi
+  fi
+
+  # Проверка хуков
+  prestow=false predelete=false poststow=false postdelete=false
+  [[ -f "./$package/.smartstow/.prestow" ]] && prestow=true
+  [[ -f "./$package/.smartstow/.predelete" ]] && predelete=true
+  [[ -f "./$package/.smartstow/.poststow" ]] && poststow=true
+  [[ -f "./$package/.smartstow/.postdelete" ]] && postdelete=true
+
+  case "$mode" in
+  S) _stow "$package" ;;
+  D) _delete "$package" ;;
+  R) _restow "$package" ;;
+  esac
+done
