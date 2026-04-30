@@ -1,0 +1,20 @@
+#!/bin/bash
+
+SCRIPTPATH="$(
+  cd "$(dirname "$0")" || exit
+  pwd -P
+)"
+
+if [[ ! -d "$SCRIPTPATH"/../.config/alacritty ]]; then
+  mkdir -p "$SCRIPTPATH"/../.config/alacritty
+fi
+
+if [[ ! -d "$HOME"/.config/alacritty ]]; then
+  mkdir "$HOME"/.config/alacritty
+fi
+
+if [[ ! -d "$HOME"/.config/alacritty/themes-from-git ]]; then
+  mkdir "$HOME"/.config/alacritty/themes-from-git
+fi
+
+cp "$SCRIPTPATH"/src/* "$SCRIPTPATH"/../.config/alacritty/
