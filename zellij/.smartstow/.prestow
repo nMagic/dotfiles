@@ -1,0 +1,16 @@
+#!/bin/bash
+
+SCRIPTPATH="$(
+  cd "$(dirname "$0")" || exit
+  pwd -P
+)"
+
+if [[ ! -d "$SCRIPTPATH"/../.config/zellij ]]; then
+  mkdir -p "$SCRIPTPATH"/../.config/zellij
+fi
+
+if [[ ! -d "$HOME"/.config/zellij ]]; then
+  mkdir "$HOME"/.config/zellij
+fi
+
+cp "$SCRIPTPATH"/src/* "$SCRIPTPATH"/../.config/zellij/
