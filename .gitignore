@@ -2,3 +2,4 @@ alacritty/.config/alacritty/alacritty.toml
 code/.config/Code\ -\ OSS/User/settings.json
 zellij/.config/zellij/config.kdl
 test
+wlr-which-key/.config
