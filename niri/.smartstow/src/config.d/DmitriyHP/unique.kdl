@@ -1,0 +1,14 @@
+binds {
+    Mod+TouchpadScrollDown cooldown-ms=100 { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
+    Mod+TouchpadScrollUp cooldown-ms=100 { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05- -l 1.0"; }
+}
+
+input {
+  touchpad {
+      tap
+      dwt
+      drag-lock
+      natural-scroll
+      disabled-on-external-mouse
+  }
+}

@@ -1,0 +1,28 @@
+binds {
+    Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+
+    Mod+Down        { focus-window-or-workspace-down; }
+    Mod+Up          { focus-window-or-workspace-up; }
+    Mod+Ctrl+Down   { move-window-down-or-to-workspace-down; }
+    Mod+Ctrl+Up     { move-window-up-or-to-workspace-up; }
+    Mod+J           { focus-window-or-workspace-down; }
+    Mod+K           { focus-window-or-workspace-up; }
+    Mod+Ctrl+J      { move-window-down-or-to-workspace-down; }
+    Mod+Ctrl+K      { move-window-up-or-to-workspace-up; }
+
+    Mod+Alt+F       { maximize-window-to-edges; }
+    Mod+Alt+V       { toggle-window-floating; }
+
+    Mod+V           hotkey-overlay-title="clipboard"    { spawn-sh "qs -c noctalia-shell ipc call plugin:clipboard toggle"; }
+    Mod+Alt+Period  hotkey-overlay-title="Emoji+Glyphs" { spawn-sh "emoji=$(bemoji -en) && [[ -n $emoji ]] && wl-copy $emoji && wtype -M ctrl v -m ctrl"; }
+    Alt+F4          hotkey-overlay-title="SessionMenu"  { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+D           hotkey-overlay-title="Launcher"     { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Mod+Tab         hotkey-overlay-title="Windows"      { spawn-sh "qs -c noctalia-shell ipc call launcher windows"; }
+
+    Mod+N hotkey-overlay-title="Noctalia stuff" { spawn-sh "wlr-which-key -k n"; }
+    Mod+W hotkey-overlay-title="Work"           { spawn-sh "wlr-which-key -k w"; }
+    Mod+G hotkey-overlay-title="Game stuff"     { spawn-sh "wlr-which-key -k g"; }
+
+    Mod+M hotkey-overlay-title="Mute micro" { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+}
+

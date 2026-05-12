@@ -1,0 +1,96 @@
+workspace "󰈹"
+workspace ""
+workspace ""
+
+
+/* ----- Browser -----*/
+window-rule {
+    match app-id="zen"
+
+    open-on-workspace "󰈹"
+    open-maximized true
+}
+
+window-rule {
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+
+/* ----- Code -----*/
+window-rule {
+    match app-id="code-oss"
+
+    open-on-workspace ""
+    open-maximized true
+}
+
+
+/* ----- Rostelecom -----*/
+// window-rule {
+//     match app-id="org.remmina.Remmina"
+//     match app-id="TrueConf"
+//     match app-id="snx-rs-gui"
+//     match app-id="vivaldi-stable"
+//     match app-id="YuChat"
+//
+//     open-on-workspace "󰦑"
+// }
+
+window-rule {
+    match title="VPN Authentication Factor"
+    match app-id="snx-rs-gui"
+
+    open-floating true
+    open-focused true
+
+    default-column-width { fixed 680; }
+    default-window-height { fixed 150; }
+}
+
+window-rule {
+    match app-id="org.remmina.Remmina" title="RTK"
+
+    open-fullscreen true
+}
+
+window-rule {
+    match app-id="vivaldi-stable"
+
+    open-maximized true
+}
+
+/*----- Chat -----*/
+window-rule {
+    match app-id="(org.telegram.desktop|discord)"
+
+    open-on-workspace ""
+    open-maximized true
+}
+
+
+/*----- Games -----*/
+window-rule {
+    match app-id="(steam_app_default|steam|net.lutris.Lutris)"
+
+    open-on-workspace "󰊗"
+}
+
+
+/*----- Screensaver -----*/
+window-rule {
+    match app-id="Screensaver"
+
+    open-fullscreen true
+}
+
+
+/*----- Junction -----*/
+window-rule {
+    match app-id="re.sonny.Junction"
+
+    open-floating true
+    open-focused true
+    default-column-width { fixed 700; }
+    default-window-height { fixed 200; }
+}

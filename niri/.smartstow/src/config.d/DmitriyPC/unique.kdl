@@ -1,0 +1,10 @@
+/* ----- Rostelecom -----*/
+window-rule {
+    match app-id="org.remmina.Remmina"
+    match app-id="TrueConf"
+    match app-id="snx-rs-gui"
+    match app-id="vivaldi-stable"
+    match app-id="YuChat"
+
+    open-on-workspace "󰦑"
+}
