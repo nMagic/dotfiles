@@ -81,6 +81,7 @@ source $ZSH/oh-my-zsh.sh
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 bindkey -v
+bindkey -M viins '\e.' insert-last-word
 
 # User configuration
 
