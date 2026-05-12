@@ -27,15 +27,20 @@ window-rule {
 
 
 /* ----- Rostelecom -----*/
-// window-rule {
-//     match app-id="org.remmina.Remmina"
-//     match app-id="TrueConf"
-//     match app-id="snx-rs-gui"
-//     match app-id="vivaldi-stable"
-//     match app-id="YuChat"
-//
-//     open-on-workspace "󰦑"
-// }
+window-rule {
+    match app-id="org.remmina.Remmina"
+    match app-id="snx-rs-gui"
+    match app-id="vivaldi-stable"
+
+    open-on-workspace "󰦑"
+}
+
+window-rule {
+    match app-id="TrueConf"
+    match app-id="YuChat"
+
+    open-on-workspace ""
+}
 
 window-rule {
     match title="VPN Authentication Factor"
@@ -59,6 +64,7 @@ window-rule {
 
     open-maximized true
 }
+
 
 /*----- Chat -----*/
 window-rule {
