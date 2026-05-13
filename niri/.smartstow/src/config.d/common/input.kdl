@@ -1,0 +1,11 @@
+input {
+    keyboard {
+        xkb {
+            layout "us,ru"
+            options "grp:win_space_toggle,grp:alt_shift_toggle"
+        }
+
+        numlock
+        track-layout "window"
+    }
+}

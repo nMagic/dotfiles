@@ -1,0 +1,27 @@
+#!/bin/bash
+
+SCRIPTPATH="$(
+  cd "$(dirname "$0")" || exit
+  pwd -P
+)"
+
+if [[ ! -d "$SCRIPTPATH"/../.config/niri/config.d ]]; then
+  mkdir -p "$SCRIPTPATH"/../.config/niri/config.d
+fi
+
+if [[ ! -f "$SCRIPTPATH"/../.config/niri/config.kdl ]]; then
+  cp "$HOME"/.config/niri/config.kdl{,.bak}
+  mv "$HOME"/.config/niri/config.kdl "$SCRIPTPATH"/../.config/niri/
+fi
+
+cp "$SCRIPTPATH"/src/config.d/common/* "$SCRIPTPATH"/../.config/niri/config.d/
+if [[ -f "$SCRIPTPATH"/src/config.d/"$(cat /etc/hostname)"/unique.kdl ]]; then
+  cp "$SCRIPTPATH"/src/config.d/"$(cat /etc/hostname)"/unique.kdl "$SCRIPTPATH"/../.config/niri/config.d/
+fi
+
+sed -i 's|^.*spawn-at-startup "waybar"$|// &|' "$SCRIPTPATH"/../.config/niri/config.kdl
+echo "include \"./noctalia.kdl\"" >>"$SCRIPTPATH"/../.config/niri/config.kdl
+for file in "$SCRIPTPATH"/../.config/niri/config.d/*; do
+  filename=$(basename "$file")
+  echo "include \"./config.d/$filename\"" >>"$SCRIPTPATH"/../.config/niri/config.kdl
+done

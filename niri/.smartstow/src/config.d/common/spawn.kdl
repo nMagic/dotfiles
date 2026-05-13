@@ -5,5 +5,4 @@ spawn-sh-at-startup "wireproxy -c .config/wireproxy/wireproxy.conf -d"
 
 
 spawn-sh-at-startup "sleep 5 && zen-browser"
-spawn-sh-at-startup "sleep 5 && code"
 spawn-sh-at-startup "sleep 5 && Telegram"

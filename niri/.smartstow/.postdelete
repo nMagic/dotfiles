@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SCRIPTPATH="$(
+  cd "$(dirname "$0")" || exit
+  pwd -P
+)"
+
+rm -rf "$SCRIPTPATH"/../.config
+mv "$HOME"/.config/niri/config.kdl.bak "$HOME"/.config/niri/config.kdl
