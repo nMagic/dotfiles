@@ -30,6 +30,7 @@ if [[ $(snxctl status) == "Disconnected" ]]; then
   exit 0
 fi
 
+remmina -i &
 vivaldi &
 while [[ "$(niri msg --json focused-window | jq -r '.app_id')" != "vivaldi-stable" ]]; do
   echo "launching vivaldi"
@@ -40,9 +41,10 @@ while [[ "$(niri msg --json focused-window | jq -r '.app_id')" != "YuChat" ]]; d
   echo "launching yuchat"
   sleep 0.1
 done
+niri msg action move-column-to-index 1
 trueconf &
 while [[ "$(niri msg --json focused-window | jq -r '.app_id')" != "TrueConf" ]]; do
   echo "launching trueconf"
   sleep 0.1
 done
-remmina -i &
+niri msg action move-column-to-index 2
