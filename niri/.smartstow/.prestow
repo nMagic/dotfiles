@@ -19,6 +19,8 @@ if [[ -f "$SCRIPTPATH"/src/config.d/"$(cat /etc/hostname)"/unique.kdl ]]; then
   cp "$SCRIPTPATH"/src/config.d/"$(cat /etc/hostname)"/unique.kdl "$SCRIPTPATH"/../.config/niri/config.d/
 fi
 
+sed -i 's|^.*spawn-at-startup "waybar"$|// &|' "$SCRIPTPATH"/../.config/niri/config.kdl
+echo "include \"./noctalia.kdl\"" >>"$SCRIPTPATH"/../.config/niri/config.kdl
 for file in "$SCRIPTPATH"/../.config/niri/config.d/*; do
   filename=$(basename "$file")
   echo "include \"./config.d/$filename\"" >>"$SCRIPTPATH"/../.config/niri/config.kdl
