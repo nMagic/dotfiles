@@ -20,5 +20,6 @@ if [[ -f "$SCRIPTPATH"/src/config.d/"$(cat /etc/hostname)"/unique.kdl ]]; then
 fi
 
 for file in "$SCRIPTPATH"/../.config/niri/config.d/*; do
-  echo "include \"./config.d/$file\"" >>"$SCRIPTPATH"/../.config/niri/config.kdl
+  filename=$(basename "$file")
+  echo "include \"./config.d/$filename\"" >>"$SCRIPTPATH"/../.config/niri/config.kdl
 done
