@@ -1,3 +1,29 @@
+output "DP-2" {
+  scale 1
+  position x=0 y=0
+}
+output "DP-3" {
+  scale 1
+  position x=1920 y=0
+}
+output "eDP-1" {
+  scale 1.25
+  position x=960 y=1080
+}
+
+workspace "󰈹" {
+  open-on-output "DP-2"
+}
+workspace "" {
+  open-on-output "DP-2"
+}
+workspace "" {
+  open-on-output "DP-3"
+}
+workspace "󰈙" {
+  open-on-output "DP-3"
+}
+
 binds {
     Mod+TouchpadScrollDown cooldown-ms=100 { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
     Mod+TouchpadScrollUp cooldown-ms=100 { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05- -l 1.0"; }
@@ -12,3 +38,4 @@ input {
       disabled-on-external-mouse
   }
 }
+

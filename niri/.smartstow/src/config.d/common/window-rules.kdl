@@ -1,8 +1,3 @@
-workspace "󰈹"
-workspace ""
-workspace ""
-
-
 /* ----- Browser -----*/
 window-rule {
     match app-id="zen"
