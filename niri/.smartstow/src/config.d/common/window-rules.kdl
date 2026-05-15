@@ -60,6 +60,12 @@ window-rule {
     open-maximized true
 }
 
+window-rule {
+  match app-id="^libreoffice.*$"
+  match app-id="ONLYOFFICE"
+
+  open-on-workspace "󰈙"
+}
 
 /*----- Chat -----*/
 window-rule {
