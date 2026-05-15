@@ -7,6 +7,9 @@ if [[ -z $workspace_id ]]; then
 fi
 
 niri msg action focus-workspace "$workspace_id" && niri msg action set-workspace-name 󰦑
+if [[ "$(cat /etc/hostname)" == "DmitriyPC" ]]; then
+  niri msg action move-workspace-to-index 4
+fi
 
 snx-rs-gui -m connect &
 while [[ $(snxctl status) == "Disconnected" ]]; do
