@@ -26,3 +26,6 @@ binds {
     Mod+M hotkey-overlay-title="Mute micro" { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 }
 
+hotkey-overlay {
+    skip-at-startup
+}
