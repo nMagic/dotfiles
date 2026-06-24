@@ -21,6 +21,7 @@ binds {
 
     Mod+N hotkey-overlay-title="Noctalia stuff"             { spawn-sh "wlr-which-key -k n"; }
     Mod+W hotkey-overlay-title="Work"                       { spawn-sh "wlr-which-key -k w"; }
+    Mod+S hotkey-overlay-title="Dynamic screencasting"      { spawn-sh "wlr-which-key -k s"; }
 
     Mod+M hotkey-overlay-title="Mute micro" { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 }
