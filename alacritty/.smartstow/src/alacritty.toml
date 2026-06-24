@@ -1,6 +1,6 @@
 [general]
 import = [
-    "~/.config/alacritty/themes-from-git/themes/nord.toml",
+  "~/.config/alacritty/themes/noctalia.custom.toml",
 ]
 
 [font]
