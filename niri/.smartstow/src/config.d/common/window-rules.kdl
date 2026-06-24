@@ -32,7 +32,7 @@ window-rule {
 
 window-rule {
     match app-id="TrueConf"
-    match app-id="YuChat"
+    match app-id="YuChat|yuchat"
 
     open-on-workspace ""
 }

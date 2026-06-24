@@ -40,7 +40,7 @@ while [[ "$(niri msg --json focused-window | jq -r '.app_id')" != "vivaldi-stabl
   sleep 0.1
 done
 yuchat &
-while [[ "$(niri msg --json focused-window | jq -r '.app_id')" != "YuChat" ]]; do
+while [[ "$(niri msg --json focused-window | jq -r '.app_id')" != "yuchat" ]]; do
   echo "launching yuchat"
   sleep 0.1
 done
