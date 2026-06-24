@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [[ "$(cat /etc/hostname)" == "DmitriyHP" ]] && (($(niri msg --json outputs | jq 'length') > 1)); then
+  in_office=true
+else
+  in_office=false
+fi
+
 current_window="$(niri msg --json focused-window | jq -r '.id')"
 workspace_id="$(niri msg --json workspaces | jq -r '.[] | select(.name == "󰦑") | .idx')"
 if [[ -z $workspace_id ]]; then
@@ -7,8 +13,9 @@ if [[ -z $workspace_id ]]; then
 fi
 
 niri msg action focus-workspace "$workspace_id" && niri msg action set-workspace-name 󰦑
-if [[ "$(cat /etc/hostname)" == "DmitriyPC" ]]; then
-  niri msg action move-workspace-to-index 4
+niri msg action move-workspace-to-index 4
+if $in_office; then
+  niri msg action move-workspace-to-index 2
 fi
 
 snx-rs-gui -m connect &
@@ -51,3 +58,10 @@ while [[ "$(niri msg --json focused-window | jq -r '.app_id')" != "TrueConf" ]];
   sleep 0.1
 done
 niri msg action move-column-to-index 2
+
+if $in_office; then
+  workspace_id="$(niri msg --json workspaces | jq -r '.[].idx' | sort -n | tail -1)"
+  niri msg action focus-workspace "$workspace_id"
+  niri msg action move-workspace-to-index 2
+  niri msg action set-workspace-name "󰈙"
+fi
