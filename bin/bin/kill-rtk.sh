@@ -1,6 +1,6 @@
 #!/bin/bash
 
-snxctl disconnect
+snx-rs-gui -m disconnect
 while [[ $(snxctl status) != "Disconnected" ]]; do
   sleep 0.1
   echo "snx disconnecting"
