@@ -31,6 +31,5 @@ while [[ ! $(pgrep -c yuchat) -eq 0 ]]; do
   echo "Exiting yuchat"
 done
 
-if [[ "$(cat /etc/hostname)" == "DmitriyPC" ]]; then
-  niri msg action unset-workspace-name 󰦑
-fi
+niri msg action unset-workspace-name 󰦑
+niri msg action unset-workspace-name 󰈙
