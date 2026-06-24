@@ -55,30 +55,15 @@ menu:
       - key: "k"
         desc: Kill work applications
         cmd: ~/bin/kill-rtk.sh
-      - key: "f"
-        desc: Focus an app
-        submenu:
-          - key: "c"
-            desc: YuChat
-            cmd: niri msg action focus-window --id $(niri msg --json windows | jq -r '.[] |
-              select(.workspace_id==4) | select(.app_id=="YuChat") | .id' | sort
-              | head -1)
-          - key: "t"
-            desc: TrueConf
-            cmd: niri msg action focus-window --id $(niri msg --json windows | jq -r '.[] |
-              select(.workspace_id==4) | select(.app_id=="TrueConf") | .id' |
-              sort | head -1)
-          - key: "v"
-            desc: Vivaldi
-            cmd: niri msg action focus-window --id $(niri msg --json windows | jq -r '.[] |
-              select(.workspace_id==4) | select(.app_id=="vivaldi-stable") |
-              .id')
-  - key: "g"
-    desc: Game
+  - key: "s"
+    desc: Dynamic cast target
     submenu:
-      - key: "s"
-        desc: Init game workspace
-        cmd: ~/bin/init-game-workspace.sh
-      - key: "d"
-        desc: Delete game workspace
-        cmd: ~/bin/delete-game-workspace.sh
+      - key: "w"
+        desc: Set the dynamic cast target to the focused window
+        cmd: niri msg action set-dynamic-cast-window
+      - key: "m"
+        desc: Set the dynamic cast target to the focused monitor
+        cmd: niri msg action set-dynamic-cast-monitor
+      - key: "c"
+        desc: Clear the dynamic cast target, making it show nothing
+        cmd: niri msg action clear-dynamic-cast-target

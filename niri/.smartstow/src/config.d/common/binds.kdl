@@ -19,9 +19,8 @@ binds {
     Mod+D           hotkey-overlay-title="Launcher"     { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+Tab         hotkey-overlay-title="Windows"      { spawn-sh "qs -c noctalia-shell ipc call launcher windows"; }
 
-    Mod+N hotkey-overlay-title="Noctalia stuff" { spawn-sh "wlr-which-key -k n"; }
-    Mod+W hotkey-overlay-title="Work"           { spawn-sh "wlr-which-key -k w"; }
-    Mod+G hotkey-overlay-title="Game stuff"     { spawn-sh "wlr-which-key -k g"; }
+    Mod+N hotkey-overlay-title="Noctalia stuff"             { spawn-sh "wlr-which-key -k n"; }
+    Mod+W hotkey-overlay-title="Work"                       { spawn-sh "wlr-which-key -k w"; }
 
     Mod+M hotkey-overlay-title="Mute micro" { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 }
