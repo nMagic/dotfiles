@@ -41,9 +41,9 @@ if [[ $(snxctl status) == "Disconnected" ]]; then
 fi
 
 remmina -i &
-vivaldi &
-while [[ "$(niri msg --json focused-window | jq -r '.app_id')" != "vivaldi-stable" ]]; do
-  echo "launching vivaldi"
+firefox -P work --name=firefox-work &
+while [[ "$(niri msg --json focused-window | jq -r '.app_id')" != "firefox-work" ]]; do
+  echo "launching firefox"
   sleep 0.1
 done
 yuchat &

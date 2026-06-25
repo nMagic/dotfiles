@@ -15,7 +15,9 @@ while [[ ! $(pgrep -c remmina) -eq 0 ]]; do
   sleep 0.1
   echo "Exiting remmina"
 done
-killall vivaldi-bin
+niri msg --json windows |
+  jq -r '.[] | select(.app_id == "firefox-work") | .id' |
+  xargs niri msg action close-window --id
 while [[ ! $(pgrep -c vivaldi-bin) -eq 0 ]]; do
   sleep 0.1
   echo "Exiting vivaldi"
