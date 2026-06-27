@@ -58,6 +58,9 @@ menu:
       - key: "k"
         desc: Kill work applications
         cmd: ~/bin/kill-rtk.sh
+      - key: "r"
+        desc: Restart snx
+        cmd: snx-rs-gui -m disconnect && while [[ $(snxctl status) != "Disconnected" ]]; do sleep 0.1; done && snx-rs-gui -m connect
   - key: "s"
     desc: Dynamic cast target
     submenu:
