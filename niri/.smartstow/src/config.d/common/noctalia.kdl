@@ -17,6 +17,13 @@ layer-rule {
   place-within-backdrop true
 }
 
+layer-rule {
+  match namespace="^noctalia-bar*"
+  background-effect {
+    blur false
+  }
+}
+
 // Set transparent workspace background color so you see the backdrop at all times.
 layout {
   background-color "transparent"

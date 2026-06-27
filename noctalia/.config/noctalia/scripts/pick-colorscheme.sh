@@ -3,6 +3,8 @@ SCHEMES="$HOME/.config/noctalia/scripts/color-schemes.json"
 
 scheme=$(jq -r 'keys[]' $SCHEMES | fuzzel -d --auto-select)
 if [[ "$scheme" == "" ]]; then
-    exit
+  exit
 fi
-qs -c noctalia-shell ipc call colorScheme set "$scheme"
+source=$(jq -r --arg s "$scheme" '.[$s].source' "$SCHEMES")
+noctalia msg color-scheme-set $source $scheme
+

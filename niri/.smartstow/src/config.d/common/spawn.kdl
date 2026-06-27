@@ -1,5 +1,4 @@
-spawn-at-startup "env" "QT_QPA_PLATFORMTHEME=gtk3" "qs" "-c" "noctalia-shell" "--no-duplicate"
-spawn-sh-at-startup "~/.config/noctalia/scripts/set-color-scheme.sh"
+spawn-sh-at-startup "noctalia -d"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
 spawn-sh-at-startup "wireproxy -c .config/wireproxy/wireproxy.conf -d"
 

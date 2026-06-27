@@ -31,21 +31,24 @@ menu:
       - key: "w"
         desc: Wallpaper
         submenu:
-          - key: "w"
+          - key: "r"
             desc: Random wallpaper
-            cmd: qs -c noctalia-shell ipc call wallpaper random all
+            cmd: noctalia msg wallpaper-random
           - key: "s"
             desc: Wallpaper settings
-            cmd: qs -c noctalia-shell ipc call wallpaper toggle
+            cmd: noctalia msg panel-toggle wallpaper
+          - key: "w"
+            desc: Wallhaven
+            cmd: noctalia msg panel-toggle noctalia/wallhaven:browser
       - key: "m"
         desc: Toggle dark/light mode
-        cmd: qs -c noctalia-shell ipc call darkMode toggle
+        cmd: noctalia msg theme-mode-toggle
       - key: "c"
         desc: Pick and set color scheme
         cmd: ~/.config/noctalia/scripts/pick-colorscheme.sh
       - key: "s"
         desc: Toggle settings window
-        cmd: qs -c noctalia-shell ipc call settings toggle
+        cmd: noctalia msg settings-toggle
   - key: "w"
     desc: Work
     submenu:

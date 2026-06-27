@@ -1,5 +1,5 @@
 binds {
-    Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg session lock"; }
 
     Mod+Down        { focus-window-or-workspace-down; }
     Mod+Up          { focus-window-or-workspace-up; }
@@ -13,11 +13,11 @@ binds {
     Mod+Alt+F       { maximize-window-to-edges; }
     Mod+Alt+V       { toggle-window-floating; }
 
-    Mod+V           hotkey-overlay-title="clipboard"    { spawn-sh "qs -c noctalia-shell ipc call plugin:clipboard toggle"; }
+    Mod+V           hotkey-overlay-title="clipboard"    { spawn-sh "noctalia msg panel-toggle clipboard"; }
     Mod+Alt+Period  hotkey-overlay-title="Emoji+Glyphs" { spawn-sh "emoji=$(bemoji -en) && [[ -n $emoji ]] && wl-copy $emoji && wtype -M ctrl v -m ctrl"; }
-    Alt+F4          hotkey-overlay-title="SessionMenu"  { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
-    Mod+D           hotkey-overlay-title="Launcher"     { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
-    Mod+Tab         hotkey-overlay-title="Windows"      { spawn-sh "qs -c noctalia-shell ipc call launcher windows"; }
+    Alt+F4          hotkey-overlay-title="SessionMenu"  { spawn-sh "noctalia msg panel-toggle session"; }
+    Mod+D           hotkey-overlay-title="Launcher"     { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+Tab         hotkey-overlay-title="Windows"      { spawn-sh "noctalia msg panel-toggle launcher /win"; }
 
     Mod+N hotkey-overlay-title="Noctalia stuff"             { spawn-sh "wlr-which-key -k n"; }
     Mod+W hotkey-overlay-title="Work"                       { spawn-sh "wlr-which-key -k w"; }
