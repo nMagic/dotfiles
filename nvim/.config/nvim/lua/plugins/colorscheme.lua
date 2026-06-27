@@ -1,5 +1,6 @@
 return {
-	{ "shaunsingh/nord.nvim" },
+	{ "shaunsingh/nord.nvim", priority = 1000 },
+	{ "ellisonleao/gruvbox.nvim", priority = 1000 },
 
 	{
 		"LazyVim/LazyVim",
