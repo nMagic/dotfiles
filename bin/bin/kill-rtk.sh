@@ -1,15 +1,19 @@
 #!/bin/bash
 
-snx-rs-gui -m disconnect
-while [[ $(snxctl status) != "Disconnected" ]]; do
-  sleep 0.1
-  echo "snx disconnecting"
-done
-snx-rs-gui -m exit
-while [[ ! $(pgrep -c snx-rs-gui) -eq 0 ]]; do
-  sleep 0.1
-  echo "Exiting snx gui"
-done
+if [[ $(snxctl status) != "Disconnected" ]]; then
+  snx-rs-gui -m disconnect
+  while [[ $(snxctl status) != "Disconnected" ]]; do
+    sleep 0.1
+    echo "snx disconnecting"
+  done
+fi
+if [[ ! $(pgrep -c snx-rs-gui) -eq 0 ]]; then
+  snx-rs-gui -m exit
+  while [[ ! $(pgrep -c snx-rs-gui) -eq 0 ]]; do
+    sleep 0.1
+    echo "Exiting snx gui"
+  done
+fi
 killall remmina
 while [[ ! $(pgrep -c remmina) -eq 0 ]]; do
   sleep 0.1
