@@ -46,6 +46,11 @@ while [[ "$(niri msg --json focused-window | jq -r '.app_id')" != "firefox-work"
   echo "launching firefox"
   sleep 0.1
 done
+evolution &
+while [[ "$(niri msg --json focused-window | jq -r '.app_id')" != "org.gnome.Evolution" ]]; do
+  echo "launching evolution"
+  sleep 0.1
+done
 yuchat &
 while [[ "$(niri msg --json focused-window | jq -r '.app_id')" != "yuchat" ]]; do
   echo "launching yuchat"

@@ -26,6 +26,11 @@ while [[ ! $(pgrep -c vivaldi-bin) -eq 0 ]]; do
   sleep 0.1
   echo "Exiting vivaldi"
 done
+while [[ ! $(pgrep -c evolution) -eq 0 ]]; do
+  killall -r "evolution.*"
+  sleep 0.1
+  echo "Exiting evolution"
+done
 killall TrueConf
 while [[ ! $(pgrep -c TrueConf) -eq 0 ]]; do
   sleep 0.1
