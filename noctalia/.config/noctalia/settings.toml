@@ -61,7 +61,6 @@ launcher_position = "start"
 [hooks]
 colors_changed = "~/.config/noctalia/scripts/set-color-scheme.sh"
 theme_mode_changed = "~/.config/noctalia/scripts/set-color-scheme.sh"
-wallpaper_changed = "noctalia msg greeter-sync"
 
 [idle]
 behavior_order = ["lock", "screen-off", "suspend", "Screensaver"]

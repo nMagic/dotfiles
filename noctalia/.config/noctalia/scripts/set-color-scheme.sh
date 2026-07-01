@@ -38,8 +38,6 @@ function set_color_scheme {
       nvim --server /run/user/$(id -u)/$sock --remote-send "<Cmd>colorscheme $nvim<CR>"
     done
   fi
-
-  noctalia msg greeter-sync
 }
 
 SCHEME="$(noctalia msg color-scheme-get | awk '{ print $2 }')"
