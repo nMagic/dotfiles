@@ -17,8 +17,9 @@ input_path = "~/.config/noctalia/templates/alacritty.toml"
 output_path = "~/.config/alacritty/themes/noctalia.custom.toml"
 
 [theme.templates.user.telegram]
-input_path = "~/.config/noctalia/templates/telegram.tdesktop-theme"
-output_path = "~/.config/telegram-desktop/themes/noctalia.tdesktop-theme"
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/telegram.tdesktop-theme"
+output_path = "$XDG_CONFIG_HOME/telegram-desktop/themes/colors.tdesktop-theme"
+post_hook = "$XDG_CONFIG_HOME/noctalia/scripts/telegram-template-apply.sh"
 
 [theme.templates.user.zellij]
 input_path = "~/.config/noctalia/templates/zellij.kdl"

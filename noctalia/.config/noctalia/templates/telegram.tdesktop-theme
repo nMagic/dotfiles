@@ -193,6 +193,7 @@ historyFileNameOutFg: {{colors.on_primary.default.hex}};
 historyOutIconFg: {{colors.on_primary.default.hex}};
 historyOutIconFgSelected: #ffffff;
 historyIconFgInverted: {{colors.on_primary.default.hex}};
+historyLinkOutFg: {{colors.on_primary.default.hex}};
 historySendingOutIconFg: {{colors.on_primary.default.hex}}aa;
 historySendingInIconFg: {{colors.on_surface_variant.default.hex}};
 historySendingInvertedIconFg: #ffffffc8;
