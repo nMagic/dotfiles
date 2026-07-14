@@ -32,7 +32,7 @@ members = [
   "network",
   "bluetooth",
   "battery",
-  "keyboard_layout"
+  "keyboard_layout",
 ]
 opacity = 1.0
 padding = 12.0
@@ -103,7 +103,7 @@ schema_version = 2
 position = "top_right"
 
 [plugins]
-enabled = ["noctalia/wallhaven"]
+enabled = ["noctalia/wallhaven", "noctalia/kaomoji"]
 
 [shell]
 font_family = "DroidSansM Nerd Font"
@@ -113,6 +113,12 @@ settings_show_advanced = true
 
 [shell.animation]
 enabled = false
+
+[shell.greeter_sync]
+auto_sync = true
+
+[shell.launcher]
+session_search = true
 
 [shell.panel]
 launcher_compact = true
@@ -127,11 +133,18 @@ enabled = true
 [theme]
 [theme.templates]
 builtin_ids = ["btop", "gtk3", "gtk4", "niri", "qt"]
-community_ids = ["pywalfox", "discord", "fuzzel", "papirus-icons", "yazi"]
+community_ids = [
+  "pywalfox",
+  "fuzzel",
+  "discord",
+  "papirus-icons",
+  "yazi",
+  "zathura",
+]
 
 [wallpaper]
 directory = "/home/dmitriy/Pictures/Wallpapers"
-fill_mode = "center"
+fill_mode = "span"
 
 [weather]
 auto_locate = true
