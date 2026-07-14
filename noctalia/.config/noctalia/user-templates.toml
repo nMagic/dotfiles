@@ -1,20 +1,14 @@
 [config]
 
 [theme]
-
-# SDDM GREETER
-[theme.templates.user.sddm]
-input_path = "/usr/share/sddm/themes/noctalia/theme.template.conf"
-output_path = "/usr/share/sddm/themes/noctalia/theme.conf"
-
 [theme.templates.user.wlr-which-key]
-input_path = "~/.config/noctalia/templates/wlr-which-key.yaml"
-output_path = "~/.config/wlr-which-key/theme.yaml"
-post_hook = "~/.config/wlr-which-key/set-theme.sh"
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/wlr-which-key.yaml"
+output_path = "$XDG_CONFIG_HOME/wlr-which-key/theme.yaml"
+post_hook = "$XDG_CONFIG_HOME/wlr-which-key/set-theme.sh"
 
 [theme.templates.user.alacritty]
-input_path = "~/.config/noctalia/templates/alacritty.toml"
-output_path = "~/.config/alacritty/themes/noctalia.custom.toml"
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/alacritty.toml"
+output_path = "$XDG_CONFIG_HOME/alacritty/themes/noctalia.custom.toml"
 
 [theme.templates.user.telegram]
 input_path = "$XDG_CONFIG_HOME/noctalia/templates/telegram.tdesktop-theme"
@@ -22,6 +16,10 @@ output_path = "$XDG_CONFIG_HOME/telegram-desktop/themes/colors.tdesktop-theme"
 post_hook = "$XDG_CONFIG_HOME/noctalia/scripts/telegram-template-apply.sh"
 
 [theme.templates.user.zellij]
-input_path = "~/.config/noctalia/templates/zellij.kdl"
-output_path = "~/.config/zellij/themes/matugen.kdl"
-post_hook = "sed -Ei 's/rgb\\(([0-9]+), *([0-9]+), *([0-9]+)\\)/\\1 \\2 \\3/g' ~/.config/zellij/themes/matugen.kdl && touch ~/.config/zellij/config.kdl"
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/zellij.kdl"
+output_path = "$XDG_CONFIG_HOME/zellij/themes/matugen.kdl"
+post_hook = "sed -Ei 's/rgb\\(([0-9]+), *([0-9]+), *([0-9]+)\\)/\\1 \\2 \\3/g' $XDG_CONFIG_HOME/zellij/themes/matugen.kdl && touch ~/.config/zellij/config.kdl"
+
+[theme.templates.user.nvim]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/nvim.lua"
+output_path = "$XDG_CONFIG_HOME/nvim/colors/matugen.lua"
